@@ -1,0 +1,95 @@
+<%-contentFor('body') %>
+
+<form action="/pessoa" method="GET">
+  
+  <div class=" row mb-3 form-control-lg">
+    <div class="col-sm-12">
+      <label for="nome" class="form-label form-control form-control-lg"
+              style="background-color: #e3f2fd;">
+        Pessoa
+      </label>
+    </div>
+
+    <div align="right">
+      <button type="button" onclick="cadastrar()" class="btn btn-info">Cadastrar</button>
+    </div>
+    
+    <div style="margin-top: 10px;">
+        <table class="table table-primary table-striped" border="1">
+          <thead>
+            <tr>
+                <td>Nome</td>
+                <td>Aniversário</td>
+                <td>Cidade</td>
+                <td>Estado</td>
+                <td align="center">Ações</td>
+            </tr>
+            </thead>
+            <tbody>
+                <%data.forEach(function(details) { %>
+                  <tr>
+                      <td><%= details.nome %></td>
+                      <td><%= details.nascimento %></td>
+                      <td><%= details.cidade %></td>
+                      <td><%= details.estado %></td>
+                      <td width="15%" align="center">
+                        <button type="button" onclick="editar('<%= details._id %>')" class="btn btn-success">Editar</button>
+                        <!-- <button type="button" onclick="excluir('<%= details._id %>')" class="btn btn-danger">Deletar</button> -->
+                        <!-- Button trigger modal -->
+                        <button type="button" id="btnExcluir" data-id="<%= details._id %>" class="btn btn-danger"> Deletar</button>
+                      </td>
+                  </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+  </div>
+</form>
+
+<!-- Modal -->
+<div class="modal fade" id="modalExcluir" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #e3f2fd;">
+        <h5 class="modal-title" id="exampleModalLabel">Excluir</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Tem certeza que deseja excluir este registro? <span class="nome"></span>
+      </div>
+      <div class="modal-footer" style="background-color: #e3f2fd;">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+        <button type="button" id="btnYes"  class="btn btn-danger">Sim</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+
+  function cadastrar() {
+    window.location.href="/pessoa/pessoaCadastrar"
+  }
+
+  function editar(id) {
+    window.location.href="/editarPessoa/"+id
+  }
+
+  function excluir(id) {
+    window.location.href="/delete/"+id
+  }
+
+  $(".btn.btn-danger").on('click', function(){
+      var id = $(this).data('id'); 
+      //$('span.nome').text(' (id = ' +id+ ')'); 
+      $('#modalExcluir').data('id', id).modal('show');
+  });
+  
+  $( "#btnYes" ).on('click', function() {
+    var id = $('#modalExcluir').data('id');
+    excluir(id);
+  });
+
+</script>
