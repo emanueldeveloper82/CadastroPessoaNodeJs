@@ -1,5 +1,4 @@
 
-
 var moment = require('moment')
 moment().format("d/M/yyyy")
 
@@ -27,7 +26,7 @@ MongoClient.connect(uri, (err, client) => {
 
 
 app.get('/home', (req, res) => {
-  res.render('pages/home')
+  res.render('pages/home', {version:pjson})
 })
 
 app.get('/', (req, res) => {
