@@ -63,7 +63,7 @@ app.post('/salvarPessoa', (req, res) => {
         
         //Mensagem sucesso na tela
         console.log('Salvo com sucesso!')
-        res.redirect('/')
+        res.redirect('/pessoa')
     })
 })
 
