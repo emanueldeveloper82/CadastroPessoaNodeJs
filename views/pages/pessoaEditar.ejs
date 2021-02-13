@@ -1,0 +1,105 @@
+<%-contentFor('body') %>
+
+
+<% data.forEach(function(details) { %>
+
+  <form action="/editarPessoa/<%= details._id %>" method="POST">
+  <div class=" row mb-3 form-control-lg">
+    <div class="col-sm-12">
+      <label for="nome" class="form-label form-control form-control-lg"
+              style="background-color: #e3f2fd;">
+        Editar pessoa
+      </label>
+    </div>
+  
+    <div class="col-sm-6">
+      <label for="nome" class="form-label">Nome</label>
+      <input type="text" 
+             id="nome"
+             value="<%= details.nome %>"
+             class="form-control form-control-sm"
+             name="nome" 
+             placeholder="Nome" required>
+    </div>
+
+    <div class="col-sm-3">
+      <label for="nascimento" class="form-label">Data de Nascimento</label>
+      <input type="date" 
+             id="nascimento"
+             value="<%= details.nascimento %>"
+             name="nascimento" 
+             class="form-control form-control-sm" required>
+    </div>
+
+    <div class="col-md-3">
+      <label for="sexo" class="form-label">Sexo</label>
+      <select id="sexo" value="<%= details.sexo %>" class="form-select-sm form-control form-control-sm" 
+                     name="sexo" required>
+        <option>Selecione...</option>
+        <option value="1" <%= details.sexo == '1' ? 'selected' : ''%>> Masculino</option>
+        <option value="2" <%= details.sexo == '2' ? 'selected' : ''%>>Feminino</option>
+        <option value="3" <%= details.sexo == '3' ? 'selected' : ''%>>Indiferente</option>
+      </select>
+    </div>
+
+    <div class="col-sm-4">
+      <label for="telefone" class="form-label">Telefone</label>
+      <input type="text"
+             id="telefone"
+             value="<%= details.telefone %>"
+             class="form-control form-control-sm"
+             name="telefone" 
+             placeholder="Telefone" required>
+    </div>
+
+    <div class="col-sm-8">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" 
+            id="email"
+            value="<%= details.email %>"
+            name="email" 
+            class="form-control form-control-sm" 
+            placeholder="E-mail" required>
+    </div>
+
+    <div class="col-sm-6">
+      <label for="endereco" class="form-label">Endereço</label>
+      <input type="text" 
+            id="endereco"
+            value="<%= details.endereco %>" 
+            class="form-control form-control-sm" 
+            name="endereco" 
+            placeholder="Rua a, Nº 123, Apto 007">
+    </div>
+    <div class="col-md-2">
+      <label for="cep" class="form-label">CEP</label>
+      <input type="text" class="form-control form-control-sm" 
+            id="cep" value="<%= details.cep %>" name="cep" placeholder="CEP">
+    </div>
+
+    <div class="col-md-2">
+      <label for="cidade" class="form-label ">Cidade</label>
+      <input type="text" class="form-control form-control-sm" 
+            id="cidade" value="<%= details.cidade %>" name="cidade" placeholder="Cidade">
+    </div>
+
+    <div class="col-md-2">
+      <label for="estado" class="form-label">Estado</label>
+      <input type="text" class="form-control form-control-sm" 
+            id="estado" value="<%= details.estado %>" name="estado" placeholder="Estado">
+    </div>
+
+    <div class="col-12" style="margin-top: 10px;">
+      <button type="submit" class="btn btn-primary">Salvar</button>
+      <button type="button" class="btn btn-warning" onclick="cancelar()">Cancelar</button>
+    </div>
+  </div>
+
+  <script>
+    function cancelar() {
+      window.location.href="/pessoa"
+    }
+  </script>
+
+</form>
+<% }) %>
