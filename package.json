@@ -1,6 +1,6 @@
 {
   "name": "projetos",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Projeto em node Js",
   "main": "server.js",
   "scripts": {
