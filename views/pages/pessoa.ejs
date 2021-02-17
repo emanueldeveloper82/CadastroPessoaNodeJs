@@ -60,7 +60,7 @@
       </div>
       <div class="modal-footer" style="background-color: #e3f2fd;">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
-        <button type="button" id="btnYes"  class="btn btn-danger">Sim</button>
+        <button type="button" onclick="excluir()" id="btnYes"  class="btn btn-danger">Sim</button>
       </div>
     </div>
   </div>
@@ -78,18 +78,12 @@
   }
 
   function excluir(id) {
+    var id = $('#modalExcluir').data('id');
     window.location.href="/delete/"+id
   }
 
   $(".btn.btn-danger").on('click', function(){
       var id = $(this).data('id'); 
-      //$('span.nome').text(' (id = ' +id+ ')'); 
       $('#modalExcluir').data('id', id).modal('show');
   });
-  
-  $( "#btnYes" ).on('click', function() {
-    var id = $('#modalExcluir').data('id');
-    excluir(id);
-  });
-
 </script>
