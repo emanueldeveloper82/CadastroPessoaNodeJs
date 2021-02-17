@@ -1,4 +1,6 @@
 
+
+var JSAlert = require("js-alert");
 var moment = require('moment')
 moment().format("d/M/yyyy")
 
@@ -38,20 +40,18 @@ app.get('/pessoa/pessoaCadastrar', (req, res) => {
   res.render('pages/pessoaCadastrar')
 })
 
+
+/**
+ * Necessário Paginar  
+ */
 app.get('/pessoa', (req, res) => {
   db.collection('pessoa').find().toArray((err, results) => {
-      if (err) return console.log(err)
+      if (err) { 
+        //tratamento de exceção
+        return console.log(err)
+      }
       res.render('pages/pessoa.ejs', { data: results })
-
   })
-})
-
-app.get('/show', (req, res) => {
-    db.collection('pessoa').find().toArray((err, results) => {
-        if (err) return console.log(err)
-        res.render('show.ejs', { data: results })
-
-    })
 })
 
 app.post('/salvarPessoa', (req, res) => {
@@ -59,8 +59,7 @@ app.post('/salvarPessoa', (req, res) => {
         if (err) { 
           //Mensagem erro na tela
           return console.log(err)
-        }
-        
+        }         
         //Mensagem sucesso na tela
         console.log('Salvo com sucesso!')
         res.redirect('/pessoa')
