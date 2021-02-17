@@ -1,6 +1,8 @@
 
 
 var JSAlert = require("js-alert");
+require('dotenv').config()
+
 var moment = require('moment')
 moment().format("d/M/yyyy")
 
@@ -15,11 +17,11 @@ var expressLayouts = require('express-ejs-layouts');
 app.use(expressLayouts);
 
 const MongoClient = require('mongodb').MongoClient 
-const uri = "mongodb+srv://mydb:Emanuel1525@cluster0.cvzs8.mongodb.net/mydb?retryWrites=true&w=majority"
+const uri = process.env.DB_HOST
 const ObjectId = require('mongodb').ObjectID
 MongoClient.connect(uri, (err, client) => { 
     if (err) return console.log(err)
-    db = client.db('mydb')
+    db = client.db(process.env.DB_NAME)
 
     app.listen(3000, () => {
         console.log('server is running on port 3000')
