@@ -29,7 +29,7 @@ Para o desenvolvimento deste projeto utilizei as seguintes tecnologias:
 
 ---
 
-## 🦄 Autor<br>
+## 👨‍💻 Autor <br>
 <table>
   <tr>
     <td align="center">
