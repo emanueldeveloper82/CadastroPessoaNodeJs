@@ -10,7 +10,7 @@
 
 
 ## 📚 Sobre
-O projeto foi desenvolvido para aprimorar os conhecimentos em Api Rest com node, expres e mongodb:
+Trabalho na área de tecnologia desde 2006. 
 
 - **Quem sou:** Sou programador java desde 2011 e venho aprimorando estudos em diferentes tecnologias;
 - **Conhecimentos:** Neste projeto apresento meus conhecimentos em Node.js e Expres.js com o foco no back-end;
