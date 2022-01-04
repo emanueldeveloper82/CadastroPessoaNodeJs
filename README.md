@@ -35,6 +35,7 @@ Para o desenvolvimento deste projeto utilizei as seguintes tecnologias:
     <td align="center">
       <a href="https://github.com/emanueldeveloper82">
         <img src="https://avatars3.githubusercontent.com/u/31600150?s=460&v=4" width="75px;" alt="Emanuel Developer"/>
+        <br/>
         <sub>
           <b>Emanuel Developer</b>
         </sub>
